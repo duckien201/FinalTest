@@ -3,7 +3,7 @@ import React from 'react'
 import { Feather } from '@expo/vector-icons'
 import axios from 'axios'
 
-const API_URL = 'http://kiemtra.stecom.vn:8888/api/ung-vien/NDK0216766/delete'
+const API_URL = 'http://kiemtra.stecom.vn:8888/api/ung-vien/NDK0216766'
 const Detail = ({ navigation, route }) => {
     const { student } = route.params
 
@@ -11,7 +11,7 @@ const Detail = ({ navigation, route }) => {
         try {
             await axios.delete(`${API_URL}/${student.id}`)
             Alert.alert('Thành công', 'Xóa ứng viên thành công')
-            navigation.navigate('Ex1')
+            navigation.navigate('Home')
         } catch (err) {
             console.error('Lỗi xóa sinh viên:', err)
             Alert.alert('Lỗi', 'Không thể xóa sinh viên')

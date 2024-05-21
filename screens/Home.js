@@ -62,8 +62,8 @@ const Home = ({ navigation }) => {
                     <TouchableOpacity onPress={() => navigation.navigate('Detail', { student: item })}>
                         <View style={{ paddingHorizontal: 20 , marginTop : 10}}>
                             {/* <Text>Id: {item.id}</Text> */}
-                            <Text>Name: {item.tenUngVien}</Text>
-                            <Text>StudentCode: {item.maUngVien}</Text>
+                            <Text>Tên ứng viên: {item.tenUngVien}</Text>
+                            <Text>Mã ứng viên: {item.maUngVien}</Text>
                             <Text>Email: {item.email}</Text>
                             
                             <View style={{ width: '100%', height: 2, backgroundColor: 'gray', marginVertical: 5}}></View>

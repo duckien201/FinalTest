@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Button } from 'react-native'
+import { Alert,StyleSheet, Text, View, TouchableOpacity, TextInput, Button } from 'react-native'
 import React, { useState } from 'react'
 import { Feather } from '@expo/vector-icons'
 import addStudent from '../api/API'
@@ -23,9 +23,26 @@ const Add = ({ navigation }) => {
             navigation.navigate('Home')
         } catch (error) {
             setLoading(false)
-            setError('Failed to add student, Please try again')
+            setError('Lưu ứng viên bị lỗi, Hãy thử lại')
         }
     }
+    const handleCancel = () => {
+        Alert.alert(
+            'Xác nhận',
+            'Bạn có muốn hủy bỏ không?',
+            [
+                {
+                    text: 'Không',
+                    style: 'cancel',
+                },
+                {
+                    text: 'Có',
+                    onPress: () => navigation.goBack(),
+                },
+            ],
+            { cancelable: false }
+        );
+    };
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -75,7 +92,7 @@ const Add = ({ navigation }) => {
                 }}></TextInput> */}
             </View>
             <View style={styles.footer}>
-                <Button title='Hủy bỏ'></Button>
+                <Button title='Hủy bỏ' onPress={handleCancel}></Button>
                 <Button title='Lưu lại' onPress={handleAddStudent} disabled={loading}></Button>
             </View>
         </View>
